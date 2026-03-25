@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout from GitHub') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/Pranay-Medipally/my-node-app.git'
+                    url: 'https://github.com/HanumanPagidipala/my-node-app.git'
             }
         }
 
@@ -20,14 +20,14 @@ pipeline {
             steps {
                 sh '''
                 docker build -t my-node-app:${BUILD_NUMBER} .
-                docker tag my-node-app:${BUILD_NUMBER} pranaymedipally/my-node-app:latest
+                docker tag my-node-app:${BUILD_NUMBER} hanumanpagidipala/my-node-app:latest
                 '''
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push pranaymedipally/my-node-app:latest'
+                sh 'docker push hanumanpagidipala/my-node-app:latest'
             }
         }
 
@@ -46,7 +46,7 @@ pipeline {
             steps {
                 sh '''
                 # Load latest image into Minikube
-                minikube image load pranaymedipally/my-node-app
+                minikube image load hanumanpagidipala/my-node-app
 
                 # Apply manifests
                 minikube kubectl -- apply -f k8s/deployment.yaml
