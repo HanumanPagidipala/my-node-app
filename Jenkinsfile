@@ -51,7 +51,7 @@ pipeline {
                 # Apply manifests
                 minikube kubectl -- apply -f k8s/deployment.yaml
                 minikube kubectl -- apply -f k8s/service.yaml
-                minikube service my-node-app-service
+                minikube service my-node-app
                 '''
             }
         }
