@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-node-app
-        image: pranaymedipally/my-node-app:latest  # your Docker Hub image
+        image: hanumanpagidipala/my-node-app:latest  # your Docker Hub image
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
